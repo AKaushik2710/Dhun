@@ -166,3 +166,37 @@ document.getElementById("vol").querySelector("i").addEventListener('mouseout',()
     document.getElementById("range").style.display = "none"
 })
 
+class Objects{
+    constructor(bg_color, color){
+        this.bg_color = bg_color,
+        this.color = color
+    }
+}
+
+let color_obj_1 = new Objects('linear-gradient(to right, cyan ,green)','rgba(63, 233, 255, 0.9)');
+
+let color_obj_2 = new Objects('linear-gradient(to right, yellow ,white)','rgba(252, 255, 63, 0.9)');
+
+let color_obj_3 = new Objects('linear-gradient(to right, rgb(248, 200, 242) ,rgb(155, 248, 155), rgba(255, 226, 63, 0.9))','rgba(133, 255, 63, 0.9)')
+
+let color_obj_4 = new Objects('linear-gradient(to right, rgb(33, 253, 180) ,rgb(39, 161, 241), rgba(255, 63, 63, 0.9))', 'rgba(152, 127, 245, 0.9)')
+let color_arr = [color_obj_1, color_obj_2, color_obj_3, color_obj_4];
+let i = 3;
+document.getElementById("nav").querySelectorAll("i")[1].addEventListener('click', ()=>{
+    i--;
+    document.getElementById("logo").querySelector("i").style.color = color_arr[i].color;
+    document.getElementById("play_bar_img").style.backgroundImage = color_arr[i].bg_color;
+    if(i==0){
+        i=3;
+    }
+})
+
+let j =0;
+document.getElementById("nav").querySelectorAll("i")[2].addEventListener('click', ()=>{
+    j++;
+    document.getElementById("logo").querySelector("i").style.color = color_arr[j].color;
+    document.getElementById("play_bar_img").style.backgroundImage = color_arr[j].bg_color;
+    if(j==3){
+        j=0;
+    }
+})
